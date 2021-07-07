@@ -1,19 +1,23 @@
 *{
     margin:0;
     padding:0;
+    
 }
+
 
 #wrap{
     width: 100%;
     height: 100%;
+    
 }
 
 #center{
     width:1200px;
     margin: 200px auto;
+    
 }
 
-#container{
+#loginContainer{
     width:800px;
     height:400px;
     background-color: rgb(54, 57, 63);
@@ -22,76 +26,87 @@
     box-sizing:border-box;
 }
 
-#container>.c_left{
+#loginContainer>.cLeft{
     width: 460px;
     background-color: rgb(54, 57, 63);
     float:left;
 }
 
-#container>.c_left>h2{
+#loginContainer>.cLeft>h2{
     font-size:24px;
     color:white;
     margin-bottom:10px;
 }
 
-#container>.c_left>p{
+#loginContainer>.cLeft>p{
     color:#72767d;
     margin-bottom:10px;
 }
 
-#container>.c_left>form>input{
+#loginContainer>.cLeft>form>input{
     width:400px;
-    height:30px;
+    height:40px;
+    padding:10px 0 10px 0;
     background-color: rgb(59, 59, 59);
     color:var(--text-normal);
     box-shadow: none;
     border:1px solid black;
+    font-size:16px;
+    box-sizing: border-box;
+    border-radius: 5px;
 }
 
-#container>.c_left>form>p{
+#loginContainer>.cLeft>form>p{
     font-size:14px;
     font-weight:bold;
     color:#72767d;
     margin:20px 0 10px 0;
 }
 
-#container>.c_left>a{
+#loginContainer>.cLeft>a{
     font-size:14px;
     color: rgb(0,175,244);
     margin:5px 0 20px 0;
     text-decoration: none;
 }
 
-#container>.c_left>button{
+#loginContainer>.cLeft>button{
     width:400px;
-    height:30px;
+    height:45px;
     margin-top: 20px;
+    background:rgb(88,106,234);
+    padding:5px 0 5px 0;
+    box-sizing: border-box;
+    color:white;
+    font-size:15px;
+    border:0;
+    border-radius:5px;
 }
 
-#container>.c_left>p{
+#loginContainer>.cLeft>p{
     font-size:14px;
     color:#72767d;
     margin-top:10px;
 }
 
-#container>.c_left>p>a{
+#loginContainer>.cLeft>p>a{
     font-size:14px;
     color: rgb(0,175,244);
     text-decoration:none;
 }
 
-#container>.c_right{
+#loginContainer>.cRight{
     width:260px;
     float:left;
     margin-top:30px;
 }
 
-#container>.c_right>img{
+#loginContainer>.cRight>img{
     margin-left:50px;
     text-align:left;
 }
 
-#container>.c_right>h2{
+#loginContainer>.cRight>h2{
     margin-top:20px;
     font-size:24px;
     color:white;
@@ -99,13 +114,185 @@
     text-align:center;
 }
 
-#container>.c_right>p{
+#loginContainer>.cRight>p{
     color:#72767d;
     margin-bottom:10px;
     text-align:center;
 }
 
-#container>.c_right>p>span{
+#loginContainer>.cRight>p>span{
     font-weight:bold;
     
+}
+
+.qr{
+    padding:10px;
+    background:white;
+    border-radius:5px;
+}
+
+/*                 JOIN BOX                 */
+
+#joinContainer{
+    width:500px;
+    height:600px;
+    background-color: rgb(54, 57, 63);
+    margin: 0 auto;
+    padding:40px;
+    box-sizing:border-box;
+    margin: 0 auto;
+}
+
+
+#joinContainer>h2{
+    font-size:24px;
+    color:white;
+    margin-bottom:10px;
+}
+
+#joinContainer>p{
+    color:#72767d;
+    margin-bottom:10px;
+}
+
+#joinContainer>form>input{
+    width:400px;
+    height:40px;
+    padding:10px 0 10px 0;
+    background-color: rgb(59, 59, 59);
+    color:var(--text-normal);
+    box-shadow: none;
+    border:1px solid black;
+    font-size:16px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    color:#dcddde;
+}
+
+#joinContainer>form>#idWrap{
+    width:400px;
+    height:40px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border:1px solid black;
+    box-shadow: none;
+    background-color: rgb(48,51,57);
+}
+
+#joinContainer>form>#idWrap>.ifPhone{
+    height:38px;
+    padding:10px 0 10px 0;
+    background-color: rgb(48,51,57);
+    color:var(--text-normal);
+    box-shadow: none;
+    border:none;
+    font-size:16px;
+    box-sizing: border-box;
+    color:#dcddde;
+    float:left;
+    outline:none;
+}
+
+#joinContainer>form>#idWrap>.ifEmail{
+    height:38px;
+    padding:10px 0 10px 0;
+    background-color: rgb(48,51,57);
+    color:var(--text-normal);
+    box-shadow: none;
+    border:none;
+    font-size:16px;
+    box-sizing: border-box;
+    color:#dcddde;
+    float:left;
+    outline:none;
+}
+
+#joinContainer>form>p{
+    font-size:14px;
+    font-weight:bold;
+    color:#72767d;
+    margin:20px 0 10px 0;
+}
+
+.joinContainer>form>.eopLabel{
+
+}
+
+.countryCode{
+    display:block;
+    width:80px;
+    height:38px;
+    padding:10px 0 10px 10px;
+    background-color: rgb(48,51,57);
+    color:var(--text-normal);
+    box-shadow: none;
+    border:none;
+    font-size:16px;
+    box-sizing: border-box;
+    float:left;
+    color:#dcddde;
+    border-radius:5px;
+}
+
+#joinContainer>a{
+    font-size:14px;
+    color: rgb(0,175,244);
+    margin:5px 0 20px 0;
+    text-decoration: none;
+}
+
+#joinContainer>button{
+    width:400px;
+    height:45px;
+    margin-top: 20px;
+    background:rgb(88,106,234);
+    padding:5px 0 5px 0;
+    box-sizing: border-box;
+    color:white;
+    font-size:15px;
+    border:0;
+    border-radius:5px;
+}
+
+#joinContainer>p{
+    font-size:14px;
+    color:#72767d;
+    margin-top:10px;
+}
+
+#joinContainer>p>a{
+    font-size:14px;
+    color: rgb(0,175,244);
+    text-decoration:none;
+}
+
+.chooseId>.chosePhone, .choseEmail{
+    font-size:14px;
+    color:#72767d;
+    margin-top:10px;
+    margin-right:20px;
+}
+
+.chosePhone.on, .chosePhone.on{
+    font-weight:bold;
+    font-size:14px;
+    color:white;
+    margin-top:10px;
+    margin-right:20px;
+}
+
+.chooseBar{
+    margin-top:15px;
+    width:400px;
+    height:3px;
+    background:rgb(64,68,75);
+    position:relative;
+}
+
+.chooseBar>.chooseObj{
+    position:absolute;
+    margin-left:20px;
+    width:40px;
+    height:3px;
+    background:rgb(88,106,234);
 }

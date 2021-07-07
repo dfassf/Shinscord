@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const nunjucks = require('nunjucks');
 const app = express();
+const router = require('./routers/index')
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended:false}));
@@ -10,9 +11,7 @@ nunjucks.configure('views', {
     express:app,
 });
 
-app.get('/',(req,res)=>{
-    res.render('./login.html')
-})
+app.use('/',router)
 
 app.listen('3000',()=>{
     console.log('3000')

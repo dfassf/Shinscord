@@ -11,8 +11,8 @@
 <body>
     <div id = "wrap">
         <div id = "center">
-            <div id = "container">
-                <div class = "c_left">
+            <div id = "loginContainer">
+                <div class = "cLeft">
                     <h2>돌아오신 것을 환영해요!</h2>
                     <p>다시 만나다니 너무 반가워요!</p>
                     <form>
@@ -25,11 +25,44 @@
                     <button id = "loginSubmit">로그인</button>
                     <p> 계정이 필요한가요?<a href="">가입하기</a></p>
                 </div>
-                <div class = "c_right">
-                    <img src="./images/main_qr.png">
+                <div class = "cRight">
+                    <img src="/images/main_qr.png" class="qr">
                     <h2>QR코드로 로그인</h2>
                     <p><span>Shinscord 모바일 앱</span>은 아직 없어오..</p>
                 </div>
+            </div>
+            <div id="joinContainer">
+                <h2>계정 만들기</h2>
+                <div class="chooseId">
+                    <span class="chosePhone">Phone</span><span class="choseEmail">Email</span>
+                </div>
+                <div class="chooseBar">
+                    <div class="chooseObj"></div>
+                </div>
+                <form>
+                    <p class="eopLabel">전화번호</p>
+                    <div id="idWrap">
+                        <span class="countryCode">TEST</span>
+                        <input type = "text" class="ifPhone"> 
+                    </div>
+                    <p>사용자명</p>
+                    <input type = "text"> 
+                    <p>비밀번호</p>
+                    <input type = "password" id = "joinPw"> 
+                    <p>생년월일</p>
+                    <select>
+                        <option>선택하기</option>
+                    </select>
+                    <select>
+                        <option>선택하기</option>
+                    </select>
+                    <select>
+                        <option>선택하기</option>
+                    </select>
+                    <button id="joinSubmit"></button>
+                </form>
+                <a href = "" >비밀번호를 잊으셨나요?</a>    
+                <p>등록하는 순간 Discord의 <a href="">서비스 이용약관</a>과 <a href="">개인정보 보호 정책</a>에 동의하게 됩니다.</p>
             </div>
         </div>
     </div>
