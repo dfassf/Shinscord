@@ -1,8 +1,19 @@
+const axios = require('axios');
 
-let login=(req,res)=>{
+
+let login = (req, res) =>{
     res.render('login.html')
 }
 
-module.exports={
-    login
+let logintest = (req, res) =>{
+    console.log(req.body)
+    let asd='fromserver'
+    res.json({
+        asd
+    })
+}
+
+module.exports = {
+    login,
+    logintest,
 }

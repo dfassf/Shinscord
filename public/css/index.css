@@ -39,6 +39,7 @@ a, a:visited{
     float:left;
     font-weight:bold;
     font-size:15px;
+    color:white;
 }
 
 .topFrameCenter>a:visited{
@@ -54,6 +55,8 @@ a, a:visited{
     padding:10px 15px 10px 15px;
     border-radius:20px;   
     font-weight:normal;
+    text-align:center;
+    line-height:23px;
 }
 
 

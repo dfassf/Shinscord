@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const nunjucks = require('nunjucks');
 const app = express();
 const router = require('./routers/index')
+const axios = require('axios');
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended:false}));

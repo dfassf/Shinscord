@@ -1,14 +1,15 @@
 *{
     margin:0;
     padding:0;
-    
 }
 
+body{
+    background-color: rgb(88,106,234);
+}
 
 #wrap{
     width: 100%;
     height: 100%;
-    
 }
 
 #center{
@@ -17,13 +18,15 @@
     
 }
 
+
 #loginContainer{
     width:800px;
-    height:400px;
+    height:420px;
     background-color: rgb(54, 57, 63);
     margin: 0 auto;
     padding:40px;
     box-sizing:border-box;
+    border-radius:5px;
 }
 
 #loginContainer>.cLeft{
@@ -34,7 +37,7 @@
 
 #loginContainer>.cLeft>h2{
     font-size:24px;
-    color:white;
+    color:rgb(211, 213, 214);
     margin-bottom:10px;
 }
 
@@ -43,31 +46,42 @@
     margin-bottom:10px;
 }
 
-#loginContainer>.cLeft>form>input{
+#loginContainer>.cLeft>input{
     width:400px;
     height:40px;
-    padding:10px 0 10px 0;
+    padding:10px;
     background-color: rgb(59, 59, 59);
-    color:var(--text-normal);
+    color:rgb(211, 213, 214);
     box-shadow: none;
-    border:1px solid black;
+    border:1px solid rgb(30,31,35);
     font-size:16px;
     box-sizing: border-box;
     border-radius: 5px;
+    outline:none;
 }
 
-#loginContainer>.cLeft>form>p{
+#loginContainer>.cLeft>input:focus{
+    outline:1px solid rgb(88,106,234);
+}
+
+#loginContainer>.cLeft>p{
     font-size:14px;
     font-weight:bold;
     color:#72767d;
     margin:20px 0 10px 0;
 }
 
-#loginContainer>.cLeft>a{
+#loginContainer>.cLeft>span{
+    width:133px;
     font-size:14px;
     color: rgb(0,175,244);
-    margin:5px 0 20px 0;
+    display:block;
+    margin-top: 10px;
     text-decoration: none;
+}
+
+#loginContainer>.cLeft>span:hover{
+    cursor:pointer;
 }
 
 #loginContainer>.cLeft>button{
@@ -77,10 +91,14 @@
     background:rgb(88,106,234);
     padding:5px 0 5px 0;
     box-sizing: border-box;
-    color:white;
+    color:rgb(211, 213, 214);
     font-size:15px;
     border:0;
     border-radius:5px;
+}
+
+#loginContainer>.cLeft>button:hover{
+    cursor: pointer;
 }
 
 #loginContainer>.cLeft>p{
@@ -89,10 +107,15 @@
     margin-top:10px;
 }
 
-#loginContainer>.cLeft>p>a{
+#loginContainer>.cLeft>p>span{
+    margin-left:10px;
     font-size:14px;
     color: rgb(0,175,244);
     text-decoration:none;
+}
+
+#loginContainer>.cLeft>p>span:hover{
+    cursor:pointer
 }
 
 #loginContainer>.cRight{
@@ -109,7 +132,7 @@
 #loginContainer>.cRight>h2{
     margin-top:20px;
     font-size:24px;
-    color:white;
+    color:rgb(211, 213, 214);
     margin-bottom:10px;
     text-align:center;
 }
@@ -141,12 +164,13 @@
     padding:40px;
     box-sizing:border-box;
     margin: 0 auto;
+    border-radius:5px;
 }
 
 
 #joinContainer>h2{
     font-size:24px;
-    color:white;
+    color:rgb(211, 213, 214);
     margin-bottom:10px;
 }
 
@@ -155,11 +179,11 @@
     margin-bottom:10px;
 }
 
-#joinContainer>form>input{
+#joinContainer>#joinEmail, #joinId, #joinPw{
     width:400px;
     height:40px;
-    padding:10px 0 10px 0;
-    background-color: rgb(59, 59, 59);
+    padding:10px;
+    background-color: rgb(48,51,57);
     color:var(--text-normal);
     box-shadow: none;
     border:1px solid black;
@@ -167,55 +191,18 @@
     box-sizing: border-box;
     border-radius: 5px;
     color:#dcddde;
-}
-
-#joinContainer>form>#idWrap{
-    width:400px;
-    height:40px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border:1px solid black;
-    box-shadow: none;
-    background-color: rgb(48,51,57);
-}
-
-#joinContainer>form>#idWrap>.ifPhone{
-    height:38px;
-    padding:10px 0 10px 0;
-    background-color: rgb(48,51,57);
-    color:var(--text-normal);
-    box-shadow: none;
-    border:none;
-    font-size:16px;
-    box-sizing: border-box;
-    color:#dcddde;
-    float:left;
     outline:none;
 }
 
-#joinContainer>form>#idWrap>.ifEmail{
-    height:38px;
-    padding:10px 0 10px 0;
-    background-color: rgb(48,51,57);
-    color:var(--text-normal);
-    box-shadow: none;
-    border:none;
-    font-size:16px;
-    box-sizing: border-box;
-    color:#dcddde;
-    float:left;
-    outline:none;
+#joinContainer>#joinEmail:focus, #joinId:focus, #joinPw:focus{
+    outline:1px solid rgb(88,106,234);
 }
 
-#joinContainer>form>p{
+#joinContainer>p{
     font-size:14px;
     font-weight:bold;
     color:#72767d;
     margin:20px 0 10px 0;
-}
-
-.joinContainer>form>.eopLabel{
-
 }
 
 .countryCode{
@@ -234,11 +221,15 @@
     border-radius:5px;
 }
 
-#joinContainer>a{
+#joinContainer>span{
     font-size:14px;
     color: rgb(0,175,244);
     margin:5px 0 20px 0;
     text-decoration: none;
+}
+
+#joinContainer>span:hover{
+    cursor: pointer;
 }
 
 #joinContainer>button{
@@ -248,10 +239,14 @@
     background:rgb(88,106,234);
     padding:5px 0 5px 0;
     box-sizing: border-box;
-    color:white;
+    color:rgb(211, 213, 214);
     font-size:15px;
     border:0;
     border-radius:5px;
+}
+
+#joinContainer>button:hover{
+    cursor: pointer;
 }
 
 #joinContainer>p{
@@ -266,33 +261,251 @@
     text-decoration:none;
 }
 
-.chooseId>.chosePhone, .choseEmail{
-    font-size:14px;
-    color:#72767d;
-    margin-top:10px;
-    margin-right:20px;
-}
-
-.chosePhone.on, .chosePhone.on{
-    font-weight:bold;
-    font-size:14px;
-    color:white;
-    margin-top:10px;
-    margin-right:20px;
-}
-
-.chooseBar{
-    margin-top:15px;
+#joinSubmit{
     width:400px;
-    height:3px;
-    background:rgb(64,68,75);
+    height:45px;
+    margin: 20px 0 10px 0;
+    background:rgb(88,106,234);
+    padding:5px 0 5px 0;
+    box-sizing: border-box;
+    color:rgb(211, 213, 214);
+    font-size:15px;
+    border:0;
+    border-radius:5px;
+    border-top-left-radius: none;
+    border-top-right-radius: none;
+}
+
+#yrWrap{
+    width:120px;
+    height:40px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border:1px solid rgb(30,31,35);
+    box-shadow: none;
+    background-color: rgb(48,51,57);
+    float:left;
+    margin-right:15px;
     position:relative;
 }
 
-.chooseBar>.chooseObj{
+.yrWrapPop{
+    background:white;
+    width:120px;
+    height:200px;
+    bottom:39px;
     position:absolute;
-    margin-left:20px;
-    width:40px;
-    height:3px;
-    background:rgb(88,106,234);
+    box-sizing: border-box;
+    border-radius: 5px;
+    border:1px solid rgb(30,31,35);
+    overflow-x:hidden;
+    overflow-y: scroll;
 }
+
+.yrWrapPopCnt{
+    width:118px;
+    height:38px;
+    padding:10px;
+    background-color: rgb(48,51,57);
+    color:var(--text-normal);
+    box-shadow: none;
+    border:none;
+    font-size:16px;
+    box-sizing: border-box;
+    color:#dcddde;
+    float:left;
+    outline:none;
+}
+
+.yrWrapPop::-webkit-scrollbar-track{
+    background-color: rgb(48,51,57);
+    width:7px;
+}
+
+.yrWrapPop::-webkit-scrollbar{
+    width:7px;
+}
+
+.yrWrapPop::-webkit-scrollbar-thumb{
+    background:rgb(22,22,24);
+    border-radius:3px;
+    width:6px;
+}
+
+.yrInput{
+    width:90px;
+    height:38px;
+    padding:10px;
+    background-color: rgb(48,51,57);
+    color:var(--text-normal);
+    box-shadow: none;
+    border:none;
+    font-size:16px;
+    box-sizing: border-box;
+    color:#dcddde;
+    float:left;
+    outline:none;
+}
+
+.yrLbl, .monLbl, .dayLbl{
+    width:28px;
+    height:36px;
+    float:left;
+    padding-top:8px;
+    box-sizing: border-box;
+}
+
+.yrLbl:hover, .monLbl:hover, .dayLbl:hover{
+    cursor:pointer;
+}
+
+.yrWrapPop, .monWrapPop, .dayWrapPop{
+    display:none;
+}
+
+.yrWrapPopCnt:hover, .monWrapPopCnt:hover, .dayWrapPopCnt:hover{
+    background-color:rgb(42,44,48);
+    cursor:pointer;
+}
+
+#monWrap{
+    width:150px;
+    height:40px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border:1px solid rgb(30,31,35);
+    box-shadow: none;
+    background-color: rgb(48,51,57);
+    float:left;
+    margin-right:15px;
+    position:relative;
+}
+
+.monWrapPop{
+    background:white;
+    width:150px;
+    height:200px;
+    bottom:39px;
+    position:absolute;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border:1px solid rgb(30,31,35);
+    overflow-x:hidden;
+    overflow-y: scroll;
+}
+
+.monWrapPopCnt{
+    width:148px;
+    height:38px;
+    padding:10px;
+    background-color: rgb(48,51,57);
+    color:var(--text-normal);
+    box-shadow: none;
+    border:none;
+    font-size:16px;
+    box-sizing: border-box;
+    color:#dcddde;
+    float:left;
+    outline:none;
+}
+
+.monWrapPop::-webkit-scrollbar-track{
+    background-color: rgb(48,51,57);
+    width:7px;
+}
+
+.monWrapPop::-webkit-scrollbar{
+    width:7px;
+}
+
+.monWrapPop::-webkit-scrollbar-thumb{
+    background:rgb(22,22,24);
+    border-radius:3px;
+    width:6px;
+}
+
+.monInput{
+    width:120px;
+    height:38px;
+    padding:10px;
+    background-color: rgb(48,51,57);
+    color:var(--text-normal);
+    box-shadow: none;
+    border:none;
+    font-size:16px;
+    box-sizing: border-box;
+    color:#dcddde;
+    float:left;
+    outline:none;
+}
+
+#dayWrap{
+    width:100px;
+    height:40px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border:1px solid rgb(30,31,35);
+    box-shadow: none;
+    background-color: rgb(48,51,57);
+    float:left;
+    position:relative;
+}
+
+.dayWrapPop{
+    background:white;
+    width:100px;
+    height:200px;
+    bottom:39px;
+    position:absolute;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border:1px solid rgb(30,31,35);
+    overflow-x:hidden;
+    overflow-y: scroll;
+}
+
+.dayWrapPopCnt{
+    width:98px;
+    height:38px;
+    padding:10px;
+    background-color: rgb(48,51,57);
+    color:var(--text-normal);
+    box-shadow: none;
+    border:none;
+    font-size:16px;
+    box-sizing: border-box;
+    color:#dcddde;
+    float:left;
+    outline:none;
+}
+
+.dayWrapPop::-webkit-scrollbar-track{
+    background-color: rgb(48,51,57);
+    width:7px;
+}
+
+.dayWrapPop::-webkit-scrollbar{
+    width:7px;
+}
+
+.dayWrapPop::-webkit-scrollbar-thumb{
+    background:rgb(22,22,24);
+    border-radius:3px;
+    width:6px;
+}
+
+.dayInput{
+    width:70px;
+    height:38px;
+    padding:10px;
+    background-color: rgb(48,51,57);
+    color:var(--text-normal);
+    box-shadow: none;
+    border:none;
+    font-size:16px;
+    box-sizing: border-box;
+    color:#dcddde;
+    float:left;
+    outline:none;
+}
+

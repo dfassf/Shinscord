@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel = "stylesheet" href="/css/login.css">
     <script type="text/javascript" src = "/js/login.js"></script>
+    <script type="text/javascript" src = "/js/loginBack.js"></script>
 </head>
 <body>
     <div id = "wrap">
@@ -15,15 +16,13 @@
                 <div class = "cLeft">
                     <h2>돌아오신 것을 환영해요!</h2>
                     <p>다시 만나다니 너무 반가워요!</p>
-                    <form>
                         <p>이메일 또는 전화번호</p>
-                        <input type = "text" id = "logId"> 
+                        <input type = "text" id = "logId" name = "logId"> 
                         <p>비밀번호</p>
-                        <input type = "password" id = "logPw"> 
-                    </form>
-                    <a href = "" >비밀번호를 잊으셨나요?</a>
+                        <input type = "password" id = "logPw" name = "logPw"> 
+                    <span class = "forgotPw" href = "">비밀번호를 잊으셨나요?</span>
                     <button id = "loginSubmit">로그인</button>
-                    <p> 계정이 필요한가요?<a href="">가입하기</a></p>
+                    <p> 계정이 필요한가요?<span class = "joinToggle">가입하기</span></p>
                 </div>
                 <div class = "cRight">
                     <img src="/images/main_qr.png" class="qr">
@@ -33,38 +32,88 @@
             </div>
             <div id="joinContainer">
                 <h2>계정 만들기</h2>
-                <div class="chooseId">
-                    <span class="chosePhone">Phone</span><span class="choseEmail">Email</span>
-                </div>
-                <div class="chooseBar">
-                    <div class="chooseObj"></div>
-                </div>
-                <form>
-                    <p class="eopLabel">전화번호</p>
-                    <div id="idWrap">
-                        <span class="countryCode">TEST</span>
-                        <input type = "text" class="ifPhone"> 
-                    </div>
+                    <p>이메일</p>
+                        <input type = "text" id="joinEmail"> 
                     <p>사용자명</p>
-                    <input type = "text"> 
+                    <input type = "text" id = "joinId"> 
                     <p>비밀번호</p>
                     <input type = "password" id = "joinPw"> 
                     <p>생년월일</p>
-                    <select>
-                        <option>선택하기</option>
-                    </select>
-                    <select>
-                        <option>선택하기</option>
-                    </select>
-                    <select>
-                        <option>선택하기</option>
-                    </select>
-                    <button id="joinSubmit"></button>
-                </form>
-                <a href = "" >비밀번호를 잊으셨나요?</a>    
+                    <div id="yrWrap">
+                        <div class="yrWrapPop">
+                            <span class="yrWrapPopCnt">asdasdasd</span>
+                            <span class="yrWrapPopCnt">asdasdasd</span>
+                            <span class="yrWrapPopCnt">asdasdasd</span>
+                            <span class="yrWrapPopCnt">asdasdasd</span>
+                            <span class="yrWrapPopCnt">asdasdasd</span>
+                            <span class="yrWrapPopCnt">asdasdasd</span>
+                            <span class="yrWrapPopCnt">asdasdasd</span>
+                            <span class="yrWrapPopCnt">asdasdasd</span>
+                            <span class="yrWrapPopCnt">asdasdasd</span>
+                            <span class="yrWrapPopCnt">asdasdasd</span>
+                            <span class="yrWrapPopCnt">asdasdasd</span>
+                            <span class="yrWrapPopCnt">asdasdasd</span>
+                            <span class="yrWrapPopCnt">asdasdasd</span>
+                            <span class="yrWrapPopCnt">asdasdasd</span>
+                        </div>
+                        <input type = "text" class = "yrInput" placeholder="선택하기">
+                        <p class= "yrLbl">
+                            <img class="yrDrop" src="/images/downarr.svg">
+                        </p>
+                    </div>
+                    <div id="monWrap">
+                        <div class="monWrapPop">
+                            <span class="monWrapPopCnt">asdasdasd</span>
+                            <span class="monWrapPopCnt">asdasdasd</span>
+                            <span class="monWrapPopCnt">asdasdasd</span>
+                            <span class="monWrapPopCnt">asdasdasd</span>
+                            <span class="monWrapPopCnt">asdasdasd</span>
+                            <span class="monWrapPopCnt">asdasdasd</span>
+                            <span class="monWrapPopCnt">asdasdasd</span>
+                            <span class="monWrapPopCnt">asdasdasd</span>
+                            <span class="monWrapPopCnt">asdasdasd</span>
+                            <span class="monWrapPopCnt">asdasdasd</span>
+                            <span class="monWrapPopCnt">asdasdasd</span>
+                            <span class="monWrapPopCnt">asdasdasd</span>
+                            <span class="monWrapPopCnt">asdasdasd</span>
+                        </div>
+                        <input type = "text" class = "monInput" placeholder="선택하기">
+                        <p class= "monLbl">
+                            <img class="monDrop" src="/images/downarr.svg">
+                        </p>
+                    </div>
+                    <div id="dayWrap">
+                        <div class="dayWrapPop">
+                            <span class="dayWrapPopCnt">asdasdasd</span>
+                            <span class="dayWrapPopCnt">asdasdasd</span>
+                            <span class="dayWrapPopCnt">asdasdasd</span>
+                            <span class="dayWrapPopCnt">asdasdasd</span>
+                            <span class="dayWrapPopCnt">asdasdasd</span>
+                            <span class="dayWrapPopCnt">asdasdasd</span>
+                            <span class="dayWrapPopCnt">asdasdasd</span>
+                            <span class="dayWrapPopCnt">asdasdasd</span>
+                            <span class="dayWrapPopCnt">asdasdasd</span>
+                            <span class="dayWrapPopCnt">asdasdasd</span>
+                            <span class="dayWrapPopCnt">asdasdasd</span>
+                            <span class="dayWrapPopCnt">asdasdasd</span>
+                            <span class="dayWrapPopCnt">asdasdasd</span>
+                            <span class="dayWrapPopCnt">asdasdasd</span>
+                            <span class="dayWrapPopCnt">asdasdasd</span>
+                            <span class="dayWrapPopCnt">asdasdasd</span>
+                            <span class="dayWrapPopCnt">asdasdasd</span>
+                            <span class="dayWrapPopCnt">asdasdasd</span>
+                        </div>
+                        <input type = "text" class = "dayInput" placeholder="선택하기"> 
+                        <p class= "dayLbl">
+                            <img class="dayDrop" src="/images/downarr.svg">
+                        </p>
+                    </div>
+                    <button id="joinSubmit">계속하기</button>
+                <span class="loginToggle">이미 계정이 있으신가요?</span>    
                 <p>등록하는 순간 Discord의 <a href="">서비스 이용약관</a>과 <a href="">개인정보 보호 정책</a>에 동의하게 됩니다.</p>
             </div>
         </div>
     </div>
 </body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
 </html>
