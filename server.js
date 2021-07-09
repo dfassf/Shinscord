@@ -6,11 +6,13 @@ const router = require('./routers/index')
 const axios = require('axios');
 
 app.use(express.static('public'));
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.set('view engine', 'html');
 nunjucks.configure('views', {
     express:app,
 });
+
 
 app.use('/',router)
 

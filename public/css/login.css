@@ -205,27 +205,12 @@ body{
     margin:20px 0 10px 0;
 }
 
-.countryCode{
-    display:block;
-    width:80px;
-    height:38px;
-    padding:10px 0 10px 10px;
-    background-color: rgb(48,51,57);
-    color:var(--text-normal);
-    box-shadow: none;
-    border:none;
-    font-size:16px;
-    box-sizing: border-box;
-    float:left;
-    color:#dcddde;
-    border-radius:5px;
-}
-
 #joinContainer>span{
     font-size:14px;
     color: rgb(0,175,244);
     margin:5px 0 20px 0;
     text-decoration: none;
+    display:block;
 }
 
 #joinContainer>span:hover{
@@ -259,6 +244,16 @@ body{
     font-size:14px;
     color: rgb(0,175,244);
     text-decoration:none;
+}
+
+.bdAlert{
+    display:none;
+}
+
+.alert{
+    display: block;
+    color:red;
+    
 }
 
 #joinSubmit{

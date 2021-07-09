@@ -1,19 +1,30 @@
 const axios = require('axios');
 
-
+// /login에서
 let login = (req, res) =>{
     res.render('login.html')
 }
 
-let logintest = (req, res) =>{
+let getUserInfo = (req, res) =>{
+    // Db조회
     console.log(req.body)
-    let asd='fromserver'
+    let done='got logininfo'
     res.json({
-        asd
+        done
+    })
+}
+
+// /join에서
+let getJoinInfo = (req, res) =>{
+    console.log(req.body)
+    let done='got joininfo'
+    res.json({
+        done
     })
 }
 
 module.exports = {
     login,
-    logintest,
+    getUserInfo,
+    getJoinInfo
 }
