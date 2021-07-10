@@ -2,10 +2,11 @@ const express = require('express')
 const router = express.Router();
 const mainRouter = require('./main/index')
 const userRouter = require('./user/index');
-// const boardRouter = require('./board/index');
+const channelRouter = require('./channels/index');
+
 
 router.use('/user', userRouter);
-// router.use('/board', boardRouter);
+router.use('/channels', channelRouter);
 router.use('/', mainRouter);
 
 module.exports = router;

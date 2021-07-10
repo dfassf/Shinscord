@@ -48,6 +48,48 @@ function joinInit(){
     let monWrap = document.querySelector('#monWrap');
     let dayWrap = document.querySelector('#dayWrap');    
 
+    function bdValidCheck(){   
+        //비정상 검사
+        if(yrInput.value!=='' && monInput.value!=='' && dayInput.value!=='' &&
+        (monInput.value>12 || yrInput.value>thisYear || yrInput.value<thisYear-100 || dayInput.value>31)){
+            bdAlert.innerHTML = '유효한 생년월일을 입력해주세요';
+            bdAlert.setAttribute('class', 'bdAlert alert');
+        }else{
+            //윤년식별
+            if(yrInput.value!=='' && dayInput.value!=='' && monInput.value=='2'){
+                if(yrInput.value % 4 !== 0 && dayInput.value>28){
+                    bdAlert.innerHTML = '유효한 생년월일을 입력해주세요';
+                    bdAlert.setAttribute('class', 'bdAlert alert');
+                }
+                else if(yrInput.value % 4 == 0 && dayInput.value>29){
+                    bdAlert.innerHTML = '유효한 생년월일을 입력해주세요';
+                    bdAlert.setAttribute('class', 'bdAlert alert');
+                }
+                else {
+                    bdAlert.innerHTML = '';
+                    bdAlert.setAttribute('class', 'bdAlert');
+                }
+            }
+            // 30일 검사
+            else if(yrInput.value!=='' && dayInput.value!=='' && 
+                (monInput.value=='4' ||  monInput.value=='6' || monInput.value=='9' || monInput.value=='11')
+                ){
+                    if(dayInput.value>30){
+                        bdAlert.innerHTML = '유효한 생년월일을 입력해주세요';
+                        bdAlert.setAttribute('class', 'bdAlert alert');
+                    }
+                    else {
+                        bdAlert.innerHTML = '';
+                        bdAlert.setAttribute('class', 'bdAlert');
+                    }
+            }
+            else{
+                bdAlert.innerHTML = '';
+                bdAlert.setAttribute('class', 'bdAlert');
+            }
+        }
+    }
+    
     yrWrap.addEventListener('click',(e)=>{
         if(yrWrapOn==true){
             yrWrapPop.style.display='block';
@@ -60,18 +102,7 @@ function joinInit(){
             dayWrapPop.style.display='none';
         }
         yrWrapOn = !yrWrapOn;
-        
-        //윤년식별
-        if(yrInput.value!=='' && dayInput.value!=='' && monInput.value=='2'){
-            if(yrInput.value % 4 ==0 && dayInput.value>28){
-                console.log('work out ahhhh')
-                console.log(bdAlert)
-                bdAlert.innerHTML = '유효한 생년월일을 입력해주세요'
-                bdAlert.setAttribute('class', 'bdAlert alert')
-
-            }
-            else {bdAlert.innerHTML = ''}
-        }
+        bdValidCheck();
     })
         
     monWrap.addEventListener('click',(e)=>{
@@ -86,6 +117,7 @@ function joinInit(){
             dayWrapPop.style.display='none';
         }
         monWrapOn = !monWrapOn;
+        bdValidCheck();
     })
 
     dayWrap.addEventListener('click',(e)=>{
@@ -101,6 +133,7 @@ function joinInit(){
             dayWrapPop.style.display='none';
         } 
         dayWrapOn = !dayWrapOn;
+        bdValidCheck();
     })
 
     document.body.addEventListener('click',(e)=>{
@@ -114,19 +147,18 @@ function joinInit(){
                 yrWrapPop.style.display='none';
                 monWrapPop.style.display='none';
                 dayWrapPop.style.display='none';
-                yrWrapOn=true
-                monWrapOn=true
-                dayWrapOn=true
+                yrWrapOn=true;
+                monWrapOn=true;
+                dayWrapOn=true;
             }
+        bdValidCheck();
     })
 
-    
-    
-    
-    
-    
-    
-  
+    yrWrap.addEventListener('focusout',bdValidCheck);
+    monWrap.addEventListener('focusout',bdValidCheck);
+    dayWrap.addEventListener('focusout',bdValidCheck);
 
+    
 }
 document.addEventListener('DOMContentLoaded',joinInit)
+

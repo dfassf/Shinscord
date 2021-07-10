@@ -1,10 +1,21 @@
 const Sequelize = require('sequelize');
 const moment = require('moment');
 
-//이메일 사용자명 비밀번호 생년월일 - 기본정보
-//가입서버 전화번호 프로필사진 계정비활성화 계정삭제 - 부가정보
-//추가할거: 친구목록 차단목록
-module.exports = class User extends Sequelize.Model{
+
+/*
+서버명
+서버 생성일
+역할 부여
+역할에 따른 권한
+
+카테고리
+카테고리 권한
+채널
+채널 권한
+
+생각해야할 것: 채널이나 카테고리 순서 변경
+*/
+module.exports = class Server extends Sequelize.Model{
     static init(sequelize){
         return super.init({ 
             useremail:{ //필수
@@ -54,8 +65,8 @@ module.exports = class User extends Sequelize.Model{
             timestamps:false,
             underscored:false,
             paranoid:false,
-            modelName:'User',
-            tableName:'users',
+            modelName:'Server',
+            tableName:'servers',
             charset:'utf8',
             collate:'utf8_general_ci'
         });

@@ -17,9 +17,9 @@
                 <div class = "cLeft">
                     <h2>돌아오신 것을 환영해요!</h2>
                     <p>다시 만나다니 너무 반가워요!</p>
-                        <p>이메일 또는 전화번호</p>
+                        <p class = "loginIdTag">이메일</p>
                         <input type = "text" id = "logId" name = "logId"> 
-                        <p>비밀번호</p>
+                        <p class = "loginPwTag">비밀번호</p>
                         <input type = "password" id = "logPw" name = "logPw"> 
                     <span class = "forgotPw" href = "">비밀번호를 잊으셨나요?</span>
                     <button id = "loginSubmit">로그인</button>
@@ -33,7 +33,7 @@
             </div>
             <div id="joinContainer">
                 <h2>계정 만들기</h2>
-                    <p>이메일</p>
+                    <p class = "emailTag">이메일</p>
                         <input type = "text" id="joinEmail"> 
                     <p>사용자명</p>
                     <input type = "text" id = "joinId"> 
@@ -65,7 +65,8 @@
                             <img class="dayDrop" src="/images/downarr.svg">
                         </p>
                     </div><br/>
-                    <p class="bdAlert">유효한 생년월일을 입력해주세요</p>
+                    <div class="bdAlert"></div>
+                    <div class="valAlert"></div>
                     <button id="joinSubmit">계속하기</button>
                 <span class="loginToggle">이미 계정이 있으신가요?</span>    
                 <p>등록하는 순간 Discord의 <a href="">서비스 이용약관</a>과 <a href="">개인정보 보호 정책</a>에 동의하게 됩니다.</p>
