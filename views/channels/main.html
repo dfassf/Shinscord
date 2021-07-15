@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel = "stylesheet" href = "/css/channels/main.css">
+    <link rel = "stylesheet" href = "/css/channels/create.css">
+    <script type="text/javascript" src = "/js/main.js"></script>
+    <script type="text/javascript" src = "/js/mainBack.js"></script>
 </head>
 <body>
     <div id = "wrap">
         <div id = "iconListArea">
-            <!-- 아이콘 들어가는데 -->
             <div class = "icn">
                 <span class = "icnMarker">
                     <!-- 새 글이 올라오면 알려줌. 없는 경우에는 살짝 길어지고 접속하면 완전히 길어짐 
@@ -18,17 +20,100 @@
                     -->
                 </span>
                 <img class = "icnMain" src="/images/iconmain.svg">
-                <span class = "icnToolTip">
-                    <!-- 툴팁 영역 -->툴팁입asdasasdasdasdd
+                <span class = "icnToolTip">툴팁입asdasasdasdasddasdasdasdasdas
                 </span>
             </div>
             <div id = "iconDivider"></div>
+            <div class = "icn createServer">
+                +
+            </div>
         </div>
         <div id = "midListArea">
             <div id = "midListHeader">
-                
+                <p class = "serverNameHeader">서버이름입니다.</p>
+                <button class = "dropdown"><img src = "/images/downarr-dark.svg"></button>
+                <div class = "dropdownPopup"></div>
             </div>
             <!-- 친구목록, 채널목록 등 표시 -->
+            <div id = "midListCenter">
+                <div class = "ifServer">
+                    <div class = "category">
+                        <button class = "seemore"><img src = "/images/downarr-dark.svg"></button>
+                        <p class = "categoryTitle">11111</p>
+                        <button class = "add"><img src = "/images/addbtn.svg"></button>
+                    </div>
+                    <div class = "channel">
+                        채널채널
+                        <button class = "channelMod"><img src = "/images/modifysmall.svg"></button>
+                    </div>
+                    <div class = "channel">
+                        채널채널
+                    </div>
+                    <div class = "channel">
+                        채널채널
+                    </div>
+                    <div class = "channel">
+                        채널채널
+                    </div>
+                    <div class = "channel">
+                        채널채널
+                    </div>
+                    <div class = "channel">
+                        채널채널
+                    </div>
+                    <div class = "category">
+                        <button class = "seemore"><img src = "/images/downarr-dark.svg"></button>
+                        <p class = "categoryTitle">22222</p>
+                        <button class = "add"><img src = "/images/addbtn.svg"></button>
+                    </div>
+                    <div class = "channel">
+                        채널채널
+                    </div>
+                    <div class = "channel">
+                        채널채널
+                    </div>
+                    <div class = "channel">
+                        채널채널
+                    </div>
+                    <div class = "category">
+                        <button class = "seemore"><img src = "/images/downarr-dark.svg"></button>
+                        <p class = "categoryTitle">33333</p>
+                        <button class = "add"><img src = "/images/addbtn.svg"></button>
+                    </div>
+                    <div class = "channel">
+                        채널채널
+                    </div>
+                    <div class = "category">
+                        <button class = "seemore"><img src = "/images/downarr-dark.svg"></button>
+                        <p class = "categoryTitle">44444</p>
+                        <button class = "add"><img src = "/images/addbtn.svg"></button>
+                    </div>
+                    <div class = "channel">
+                        채널채널
+                    </div>
+                    <div class = "channel">
+                        채널채널
+                    </div>
+                    <div class = "channel">
+                        채널채널
+                    </div>
+                    <div class = "channel">
+                        채널채널
+                    </div>
+                    <div class = "channel">
+                        채널채널
+                    </div>
+                    <div class = "channel">
+                        끝끝끝
+                    </div>
+                </div>
+            </div>
+            <div id = "midListBottom">
+                <div class="userPic"></div>
+                <div class="userName"></div>
+                <div class="userSetting"></div>
+
+            </div>
         </div>
         <div id = "contentListArea">
             <div id = "contentHeader">
@@ -36,7 +121,7 @@
             </div>
             <div id = "contentFlex">
                 <div id = "contentMain">
-                
+               
                     <!-- 게시글 등 표시 -->
                 </div>
                 <div id = "userList">
@@ -46,5 +131,7 @@
             </div>
         </div>
     </div>
+    {% include './create.html' %}
 </body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
 </html>

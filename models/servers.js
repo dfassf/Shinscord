@@ -3,10 +3,11 @@ const moment = require('moment');
 
 
 /*
-서버명
-서버 생성일
+서버명0
+서버 생성일0
 역할 부여
 역할에 따른 권한
+차단
 
 카테고리
 카테고리 권한
@@ -18,47 +19,44 @@ const moment = require('moment');
 module.exports = class Server extends Sequelize.Model{
     static init(sequelize){
         return super.init({ 
-            useremail:{ //필수
+            servername:{ 
                 type:Sequelize.STRING(50),
                 allowNull:false,
-                unique:true,
             },
-            username:{ //필수
-                type:Sequelize.STRING(50),
-                allowNull : false,
+            roles:{ 
+                type:Sequelize.TEXT,
+                allowNull : true,
+                defaultValue:"",
             },
-            password:{ //필수
+            banneduser:{ 
+                type:Sequelize.TEXT,
+                allowNull : true,
+                defaultValue:"",
+            },
+            category:{ 
+                type:Sequelize.TEXT,
+                allowNull:true,
+                defaultValue:"",
+            },
+            channel:{ 
+                type:Sequelize.TEXT,
+                allowNull:true,
+                defaultValue:"",
+            },
+            logo:{
                 type:Sequelize.STRING(100),
-                allowNull : false,
-            },
-            birthday:{ //필수
-                type:Sequelize.STRING(8),
-                allowNull:false,
-            },
-            servers:{ //가입서버(추후 변경 예정이며 필수 아님)
-                type:Sequelize.STRING(256),
                 allowNull:true,
+                defaultValue:"",
             },
-            phonenumber:{
-                type:Sequelize.STRING(50),
-                allowNull:true,
-            },
-            pfp:{
-                type:Sequelize.STRING(100),
-                allowNull:true,
-            },
-            inactive: { 
-                type: Sequelize.BOOLEAN,
-                allowNull: false,
-                defaultValue: 0
-            },
-            joinedwhen:{
+            createdwhen:{
                 type:Sequelize.DATEONLY,
                 allowNull:false,
                 defaultValue:Sequelize.NOW,
-                get: function(){
-                    return moment(this.getDataValue('userdt')).format('Y-M-D')
-                }
+            },
+            serverdomain:{
+                type:Sequelize.STRING(100),
+                allowNull:false,
+                unique:true,
             }
         },{
             sequelize,

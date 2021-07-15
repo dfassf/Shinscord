@@ -1,0 +1,275 @@
+.wrapBg{
+    width:100%;
+    height:100vh;  
+    background: rgb(41, 43, 48);
+    position:relative;
+    display:none;
+}
+
+.popupContent{
+    position:absolute;
+    top:50%;
+    left:40%;
+    transform:translateX(-50%);
+    transform:translateY(-50%);
+    width:400px;
+    background:white;
+    border-radius:5px;
+}
+
+.create{
+    display:block;
+    -ms-user-select: none; 
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    height:335px;
+    overflow:hidden;
+    position:relative;
+}
+
+.closeBtn{
+    display:inline-block;
+    float:right;
+    margin-top:-50px;
+    margin-right:10px;
+}
+
+.closeBtn:hover{
+    cursor:pointer;
+}
+
+.createDivTop.stepOne{
+    position:absolute;
+    display:block;
+}
+
+.createDivTop.stepOne{
+    position:absolute;
+    display:none;
+}
+
+.createDivTop.stepThree{
+    position:absolute;
+    display:none;
+}
+
+.createDivTop>h1{
+    width:150px;
+    margin: 20px auto 0 auto;
+}
+
+.createDivTop>.desc{
+    margin-top:10px;
+    padding:20px;
+    text-align:center;
+    width:400px;
+    box-sizing:border-box;
+    word-break:keep-all
+}
+
+.goCreate{
+    display:block;
+    width:380px;
+    height:40px;
+    margin:10px;
+    border:1px solid rgb(218,219,222);
+    box-sizing: border-box;
+    padding:10px 14px;
+    position:relative;
+    border-radius:5px;  
+}
+
+.goCreate>img{
+    float:right;
+    transform:rotate(-90deg);
+    position:absolute;
+    right:10px;
+    top:8px;
+    user-select: none;
+}
+
+.goCreate:hover{
+    background: rgb(241,242,244);
+    cursor:pointer;
+}
+
+.goCreate:active{
+    background:rgb(229,230,233);
+}
+
+.stepTwo>.backBtn{
+    display:inline-block;
+    float:left;
+    margin-top:-55px;
+    margin-left:10px;
+    transform:rotate(90deg)
+}
+
+.stepTwo>.backBtn:hover{
+    cursor:pointer;
+}
+
+.backBtn>img{
+    width:30px;
+}
+
+.stepTwo>.svrNameInput{
+    display:block;
+    width:380px;
+    height:40px;
+    margin:-10px 10px 0 10px;
+    border:1px solid rgb(218,219,222);
+    box-sizing: border-box;
+    padding:10px 14px;
+    position:relative;
+    border-radius:5px;  
+}
+
+.stepTwo>p{
+    padding:20px;
+
+    width:400px;
+    box-sizing:border-box;
+    word-break:keep-all
+}
+
+.stepTwo>.serverNameSubmit{
+    display:block;
+    width:380px;
+    height:40px;
+    margin:10px;
+    border:1px solid rgb(218,219,222);
+    box-sizing: border-box;
+    padding:10px 14px;
+    position:relative;
+    border-radius:5px;  
+    background:rgb(62,68,78);
+    color:white;
+}
+
+.serverNameSubmit:hover{
+    background:rgb(24, 26, 28);
+    cursor:pointer;
+}
+
+.serNameSubmit:active{
+    background:rgb(12, 13, 14);
+}
+
+.stepThree>h1{
+    width:250px;
+    margin: 20px auto 0 auto;
+}
+
+.stepThree>.backBtn{
+    display:inline-block;
+    float:left;
+    margin-top:-55px;
+    margin-left:10px;
+    transform:rotate(90deg)
+}
+
+.stepThree>.backBtn:hover{
+    cursor:pointer;
+}
+
+.stepThree>form>.fileLabel{
+    width:48px;
+    height:48px;
+    margin: 0 auto;
+    display:block;
+    margin-bottom:10px;
+}
+
+.stepThree>form>.fileLabel:hover{
+    cursor:pointer
+}
+
+.fileLabel>img{
+    width:48px;
+}
+.fileLabel>.afterUpload{
+    width:48px;
+    display:none;
+    border-radius:24px;
+}
+
+.stepThree>form>.svrFileInput{
+    display:none;
+}
+
+.stepThree>p{
+    padding:20px;
+
+    width:400px;
+    box-sizing:border-box;
+    word-break:keep-all;
+    margin-bottom:-15px;
+}
+
+.stepThree>form>.serverLogoSubmit{
+    display:block;
+    width:380px;
+    height:40px;
+    margin:0 10px 0 10px;
+    border:1px solid rgb(218,219,222);
+    box-sizing: border-box;
+    padding:10px 14px;
+    position:relative;
+    border-radius:5px;  
+    background:rgb(62,68,78);
+    color:white;
+}
+
+.stepThree>form>.serverLogoSubmit:hover{
+    background:rgb(24, 26, 28);
+    cursor:pointer;
+}
+
+.stepThree>form>.serverLogoSubmit:active{
+    background:rgb(12, 13, 14);
+}
+
+.invitedAlrdy{
+    padding-top: 10px;
+    background:rgb(218,219,222);
+    height:110px;
+    border-radius:5px;
+    position:absolute;
+    bottom:0px;
+}
+
+.invitedAlrdy>h2{
+    width:300px;
+    height:40px;
+    margin: 10px auto 0 auto;
+}
+
+.invitedAlrdy>button{
+    display:block;
+    width:380px;
+    height:30px;
+    margin:10px;
+    border:1px solid rgb(218,219,222);
+    box-sizing: border-box;
+    color:white;
+    padding:7px 14px;
+    position:relative;
+    border-radius:5px;  
+    background:rgb(97,108,123);
+}
+
+.invitedAlrdy>button:hover{
+    background:rgb(76,84,95);
+    cursor: pointer;
+}
+
+.invitedAlrdy>button:active{
+    background:rgb(62,68,78);
+}
+
+.invited{
+    display:none;
+}

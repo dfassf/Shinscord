@@ -1,7 +1,7 @@
 const axios = require('axios');
 const {User} = require('../../models/index');
-const createToken = require('../../jwt');
-const createHash = require('../../createhash');
+const createToken = require('../../middleware/jwt');
+const createHash = require('../../middleware/createhash');
 const crypto = require('crypto');
 
 
@@ -14,11 +14,7 @@ let login = (req, res) =>{
 let getJoinInfo = async (req, res) =>{
     console.log(req.body)
     let {joinEmail, joinId, joinPw, yrInput, monInput, dayInput} = req.body;
-    let encPw = crypto.createHmac('sha256',Buffer.from(process.env.salt))
-                                                 .update(joinPw)
-                                                 .digest('base64')
-                                                 .replace('=','')
-                                                 .replace('==','')
+    let encPw = createHash(joinPw);
     if(monInput.length == 1){
         monInput = '0' + monInput
     }
@@ -38,7 +34,6 @@ let getJoinInfo = async (req, res) =>{
     res.json({
         done
     })
-    res.redirect('/channels')
 }
 
 let validCheck = async (req, res) =>{
@@ -70,18 +65,20 @@ let validCheck = async (req, res) =>{
             let noIdMatch = true;
             res.json({noIdMatch})
         } else{
-            let encPw = crypto.createHmac('sha256',Buffer.from(process.env.salt))
-            .update(logPw)
-            .digest('base64')
-            .replace('=','')
-            .replace('==','')
+            let noPwMatch = {};
+            let encPw = createHash(logPw);
+            let token = createToken(logId);
+            console.log(encPw)
             if(srcWithId[0].dataValues.password !== encPw){
-                let noPwMatch = true;
-                res.json({noPwMatch})
+                noPwMatch = true;
             } else{
-                let noPwMatch = false;
-                res.json({noPwMatch})
+                // 로그인 성공 부분
+                noPwMatch = false;
+                res.cookie('AccessToken', token, { httpOnly: true, secure: true })
+                req.session.isLogin = true;
+                console.log(req.session)
             }
+        res.json({noPwMatch})
         }
     }
 }

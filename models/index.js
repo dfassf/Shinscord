@@ -19,7 +19,7 @@ if (config.use_env_variable) {
 
 db.User = User;
 User.init(sequelize);
-db.User = Server;
+db.Server = Server;
 Server.init(sequelize);
 
 

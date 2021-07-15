@@ -8,6 +8,7 @@ function createHash(userpw){
                                                         .digest('base64')
                                                         .replace('=', '')
                                                         .replace('==','')
+                                                        return signature;
 }
 
 module.exports = createHash

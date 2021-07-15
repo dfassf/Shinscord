@@ -4,9 +4,7 @@ function loginWork(){
     let loginIdTag = document.querySelector('.loginIdTag');
     let loginPwTag = document.querySelector('.loginPwTag');
     let loginSubmit = document.querySelector('#loginSubmit');
-    let joinSubmit = document.querySelector('#joinSubmit');
-    let options = {headers: {'Content-Type': 'application/json'}
-    }
+    let options = {headers: {'Content-Type': 'application/json'}}
 
     loginSubmit.addEventListener('click', async ()=>{
         // 빈칸 검사
@@ -65,6 +63,8 @@ function joinWork(){
     let dayInput = document.querySelector('.dayInput');
     let valAlert = document.querySelector('.valAlert');   
     let emailTag = document.querySelector('.emailTag');   
+    let joinSubmit = document.querySelector('#joinSubmit');
+    let options = {headers: {'Content-Type': 'application/json'}}
 
     async function postJoinInfo(){
         let data = { 
@@ -104,6 +104,7 @@ function joinWork(){
                 emailTag.innerHTML = '이메일'
             }
             postJoinInfo();
+            window.location.href = 'http://localhost:3000/channels'
         } 
         else{              
             valAlert.innerHTML = '입력란을 모두 작성해 주세요.';

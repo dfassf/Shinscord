@@ -27,19 +27,22 @@ module.exports = class User extends Sequelize.Model{
             servers:{ //가입서버(추후 변경 예정이며 필수 아님)
                 type:Sequelize.STRING(256),
                 allowNull:true,
+                defaultValue:"",
             },
             phonenumber:{
                 type:Sequelize.STRING(50),
                 allowNull:true,
+                defaultValue:"",
             },
             pfp:{
                 type:Sequelize.STRING(100),
                 allowNull:true,
+                defaultValue:"",
             },
             inactive: { 
                 type: Sequelize.BOOLEAN,
                 allowNull: false,
-                defaultValue: 0
+                defaultValue: 0,
             },
             joinedwhen:{
                 type:Sequelize.DATEONLY,

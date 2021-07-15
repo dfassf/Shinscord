@@ -1,0 +1,68 @@
+<!-- <popup></popup>
+    <form method="post" action="/channels/create" enctype="multipart/form-data"> 
+        <p>서버명</p><input type="text" name="servername" class="serverName"><br/>
+        <p>이미지</p><input type="file" name="serverlogo" class="serverFile"><br/>
+        <input type = "submit" class="submit" value="제출">
+    </form>
+
+
+</body>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+</html> -->
+
+<div class = "wrapBg">
+    <div class = "popupContent">
+        <div class = "popup create">
+
+            <div class="createDivTop stepOne">
+                <h1> 서버 만들기</h1>
+                <span class = "closeBtn"><img src = "/images/closebtn-blk.svg"></span>
+                <p class = "desc"> 서버는 나와 친구들이 함께 어울리는 공간입니다. 내 서버를 만들고 대화를 시작해보세요.</p>
+                <span class = "goCreate" ondragstart="return false">지금 시작하기<img src="/images/downarr-dark.svg"></span>
+            </div>
+            <div class="createDivTop stepTwo">
+                <h1>이름 정하기</h1>
+                <span class = "closeBtn"><img src = "/images/closebtn-blk.svg"></span>
+                <span class = "backBtn backToOne"><img src = "/images/downarr-dark.svg"></span>
+                <p class = "nameLabel">서버 이름을 정해주세요.</p>
+                <input type="text" class = "svrNameInput">
+                <button class="serverNameSubmit">다음 단계</button>
+            </div>
+            <div class="createDivTop stepThree">
+                <h1>서버 아이콘 업로드</h1>
+                <span class = "closeBtn"><img src = "/images/closebtn-blk.svg"></span>
+                <span class = "backBtn backToTwo"><img src = "/images/downarr-dark.svg"></span>
+                <p class = "nameLabel">서버 아이콘을 올려주세요. 나중에 언제든 바꿀 수 있어요.</p>
+                <form method="post" action="/channels/create" enctype="multipart/form-data"> 
+                
+                <label class = "fileLabel" for = "svrFileInput">
+                    <img src = "/images/uploadicon.svg" class = "beforeUpload">
+                    <div class = "afterUpload"></div>
+                </label>
+                <input type="file" id = "svrFileInput"class = "svrFileInput" name = "serverlogo">
+                <input type = "hidden" class = "serverName" name = "servername">
+                <button class="serverLogoSubmit">만들기</button>
+                </form>
+            </div>
+            <div class="invitedAlrdy">
+                <h2>  이미 초대장을 받으셨나요?</h2>
+                <button>서버 참가하기</button>
+            </div>
+            
+        </div>
+        <div class="popup invited">
+            <h1>서버 참가하기</h1>
+            <span class = "closeBtn"><img src = "/images/closebtn-blk.svg"></span>
+            <p>아래에 초대 코드를 입력하여 서버에 참가하세요.</p>
+            <span>초대링크*</span>
+            <input type="text">
+            <p>초대는 다음 형태여야 해요.</p>
+            <p> hTKzmak
+                https://shinscord.gg/hTKzmak
+                https://shinscord.gg/shin-scord
+            </p>
+            <button class = "closeInvite">뒤로 가기</button> <button>서버 참가하기</button>
+        </div>
+    </div>
+</div>
