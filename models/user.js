@@ -51,7 +51,13 @@ module.exports = class User extends Sequelize.Model{
                 get: function(){
                     return moment(this.getDataValue('userdt')).format('Y-M-D')
                 }
+            },
+            friendslist:{
+                type:Sequelize.TEXT,
+                allowNull : true,
+                defaultValue:"",
             }
+
         },{
             sequelize,
             timestamps:false,

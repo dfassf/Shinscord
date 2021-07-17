@@ -21,5 +21,7 @@ router.post('/', controller.mainGetUserInfo);
 router.get('/create', controller.createServer);
 router.post('/create', upload.single('serverlogo'), controller.submitServer);
 router.post('/l', controller.loadServerData);
+router.post('/friends', controller.getFriendsData);
+
 
 module.exports = router;

@@ -7,13 +7,16 @@
     <title>Document</title>
     <link rel = "stylesheet" href = "/css/channels/main.css">
     <link rel = "stylesheet" href = "/css/channels/create.css">
+    <link rel = "stylesheet" href = "/css/channels/contentarea.css">
     <script type="text/javascript" src = "/js/main.js"></script>
     <script type="text/javascript" src = "/js/mainBack.js"></script>
+    <script type="text/javascript" src = "/js/contentarea.js"></script>
+
 </head>
 <body>
     <div id = "wrap">
         <div id = "iconListArea">
-            <div class = "icn">
+            <div id = "openChat" class = "icn">
                 <span class = "icnMarker">
                     <!-- 새 글이 올라오면 알려줌. 없는 경우에는 살짝 길어지고 접속하면 완전히 길어짐 
                     대신 선택된 경우에는 클래스 명을 완전히 바꿔서 hover시에도 고정되어있도록 해야 함
@@ -36,7 +39,7 @@
             </div>
             <!-- 친구목록, 채널목록 등 표시 -->
             <div id = "midListCenter">
-                <div class = "ifServer">
+                <div class = " midListWrap ifServer">
                     <div class = "category">
                         <button class = "seemore"><img src = "/images/downarr-dark.svg"></button>
                         <p class = "categoryTitle">11111</p>
@@ -107,6 +110,18 @@
                         끝끝끝
                     </div>
                 </div>
+                <div class = "midListWrap ifChat">
+                    <div class = "category">
+                        <!-- <button class = "seemore"><img src = "/images/downarr-dark.svg"></button> -->
+                        <p class = "categoryTitle">개인 메시지</p>
+                        <!-- <button class = "add"><img src = "/images/addbtn.svg"></button> -->
+                    </div>
+                    <!-- <div class = "friends">
+                        <img class = "avatar" src="/images/shinscord_logo2.png">
+                        <p class = "friendName">잠바주asdaasdasdsdasdsd스</p>
+                        <img class = "delChatLog" src = "/images/closebtn-wht.svg">
+                    </div> -->
+                </div>
             </div>
             <div id = "midListBottom">
                 <div class="userPic"></div>
@@ -121,7 +136,55 @@
             </div>
             <div id = "contentFlex">
                 <div id = "contentMain">
-               
+                    <div class = "channelStart">
+                        <h1 class = "channelStartTitle">웰컴 채널에 오신 것을 환영합ㄴ디ㅏ!</h1>
+                        <h4 class = "channelStartDesc">웰컴 채널의 시작이에요.</h4>
+                        <h4 class = "channelStartEdit"> 채널 편집</h4>
+                    </div>
+                    <div class = "postDivider"></div>
+                    <div class = "onePost"> <!--flex-->
+                        <div class = "userPic"><!--이미지 또는 시간-->
+                            <img src="/uploads/servers/1626248216720.jpeg">
+                        </div>
+                        <div class = "postRight">
+                            <p class = "postersName">신우야</p> <span class = "postedTime"></span>
+                            <div class = "postContent"></div>
+                        </div>
+                    </div>    
+                    <div class = "onePost"> <!--flex-->
+                        <div class = "userPic"><!--이미지 또는 시간-->
+                            <img src="/uploads/servers/1626248216720.jpeg">
+                        </div>
+                        <div class = "postRight">
+                            <p class = "postersName">신우야</p> <span class = "postedTime"></span>
+                            <div class = "postContent"></div>
+                        </div>
+                    </div>    
+                    <div class = "onePost"> <!--flex-->
+                        <div class = "userPic"><!--이미지 또는 시간-->
+                            <img src="/uploads/servers/1626248216720.jpeg">
+                        </div>
+                        <div class = "postRight">
+                            <p class = "postersName">신우야</p> <span class = "postedTime"></span>
+                            <div class = "postContent"></div>
+                        </div>
+                    </div>    
+                    <div class = "onePost"> <!--flex-->
+                        <div class = "userPic"><!--이미지 또는 시간-->
+                            <img src="/uploads/servers/1626248216720.jpeg">
+                        </div>
+                        <div class = "postRight">
+                            <p class = "postersName">신우야</p> <span class = "postedTime">2021-07-15</span>
+                            <div class = "postContent"></div><!--어제 오늘 아니면 시간 안뜨는데 팝업이 뜸-->
+                        </div>
+                    </div>    
+                    <div class = "typeChat">
+                        <div class = "typeChatFrame">
+                            <div class = "attachBtn">+</div>
+                            <textarea class = "txtInput"></textarea>
+                            <input class = "txtSubmit" type = "button" value = "↵">
+                        </div>
+                    </div>
                     <!-- 게시글 등 표시 -->
                 </div>
                 <div id = "userList">
@@ -134,4 +197,5 @@
     {% include './create.html' %}
 </body>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+
 </html>

@@ -15,7 +15,8 @@ function mainInit(){
     let svrFileInput = document.querySelector('#svrFileInput');
     let beforeUpload = document.querySelector('.beforeUpload');
     let afterUpload = document.querySelector('.afterUpload');
-    let serverName = document.querySelector('.serverName')
+    let serverName = document.querySelector('.serverName');
+    let serverNameHeader = document.querySelector('.serverNameHeader');
 
     stepThree.style.display='none'
     stepTwo.style.display='none'
@@ -93,9 +94,6 @@ function mainInit(){
         }
         uploaded.readAsDataURL(e.target.files[0]);
     })
- 
-
-
 }
 
 document.addEventListener('DOMContentLoaded',mainInit)

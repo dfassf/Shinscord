@@ -1,5 +1,12 @@
 const {sequelize, User, Server} = require('../../models/index');
 const getCookie = require('../../middleware/getcookie');
+const express =require('express');
+const socket = require('socket.io');
+const http = require('http');
+const app = express();
+const server = http.createServer(app);
+const io = socket(server);
+
 
 // /login에서
 let main = async (req, res) =>{
@@ -96,8 +103,52 @@ let submitServer = async (req, res) =>{
     res.redirect('/channels')
 }
 
+// 나중에 완성하기
+// 나중에 완성하기
+// 나중에 완성하기
+
 let loadServerData = async (req, res) => {
     console.log(req.body)
+}
+
+let getFriendsData = async (req, res) => {
+    let loggedInUser = getCookie(req.headers.cookie)
+    let getUserInfo = await User.findOne({
+        where:{
+            useremail:loggedInUser
+        },
+        attributes:['id','friendslist']
+    })
+
+    let frLi = getUserInfo.dataValues.friendslist
+    let frLi2 = frLi.split(' ')
+    let friendsIdArr = [];
+    let friendsInfoArr = [];
+    frLi2.forEach((ele)=>{
+        if(ele!==''){
+            friendsIdArr.push(ele)
+        }
+    })
+
+    for(let i = 0; i < friendsIdArr.length; i++){
+        let result = await User.findOne({
+            where:{
+                id:friendsIdArr[i]
+            },
+            attributes:['id','username','pfp']
+        })
+        console.log(result.dataValues)
+        friendsInfoArr.push(result.dataValues)
+    }
+    console.log('시작',friendsInfoArr)
+    res.json({friendsInfoArr})
+
+    io.sockets.on('connection',(socket)=>{
+        socket.on('send',(data)=>{
+            console.log(`클라이언트에서 받은 메세지는 ${data.msg}`)
+            socket.broadcast.emit('call',data.msg)
+        })
+    })
 }
 
 
@@ -108,4 +159,5 @@ module.exports = {
     createServer,
     submitServer,
     loadServerData,
+    getFriendsData,
 }

@@ -3,6 +3,35 @@
     padding: 0;
 }
 
+*::-webkit-scrollbar-track{
+    width:3px;
+    background: rgb(41, 43, 48);
+}
+
+*::-webkit-scrollbar{
+    /* width:3px; */
+    background: rgb(41, 43, 48);
+    width:5px;
+}
+
+*::-webkit-scrollbar-thumb{
+    /* width:3px; */
+    background: rgb(24, 26, 28);
+    width:5px;
+}
+
+::-webkit-scrollbar-button{
+    display:none;
+}
+
+::-webkit-scrollbar-track-piece{
+    display:none;
+}
+
+::-webkit-scrollbar-corner{
+    display:none;
+}
+
 a, a:visited{
     text-decoration: none;
 }
@@ -221,14 +250,14 @@ font-size:50px;
     overflow-x:hidden;
 }
 
-.ifServer{
+.midListWrap{
     width:240px;
     height:auto;
     vertical-align:middle;
     padding-bottom:100px;
 } 
 
-#midListCenter>.ifServer>.category{
+#midListCenter>.midListWrap>.category{
     width:240px;
     height:40px;
     display:block;
@@ -237,7 +266,7 @@ font-size:50px;
     margin-top:10px;
 }
 
-#midListCenter>.ifServer>.category>.seemore{
+#midListCenter>.midListWrap>.category>.seemore{
     left: 0px;
     top:10px;
     background:none;
@@ -247,15 +276,16 @@ font-size:50px;
     float:left;
 }
 
-#midListCenter>.ifServer>.category>.categoryTitle{
+#midListCenter>.midListWrap>.category>.categoryTitle{
     width:210px;
     display:block;
     margin-left: 30px;
     line-height:50px;
+    user-select: none;
 }
 
 
-#midListCenter>.ifServer>.category>.add{
+#midListCenter>.midListWrap>.category>.add{
     right: 7px;
     top:15px;
     background:none;
@@ -268,34 +298,39 @@ font-size:50px;
     cursor:pointer;
 }
 
-#midListCenter::-webkit-scrollbar-track{
+/* #midListCenter::-webkit-scrollbar-track{
     width:3px;
     background: rgb(41, 43, 48);
 }
 
 #midListCenter::-webkit-scrollbar{
-    /* width:3px; */
+    width:3px;
     background: rgb(41, 43, 48);
     width:5px;
 }
 
 #midListCenter::-webkit-scrollbar-thumb{
-    /* width:3px; */
+    width:3px;
     background: rgb(24, 26, 28);
     width:5px;
-}
+} */
 
-#midListCenter>.ifServer>.channel{
+#midListCenter>.midListWrap>.channel{
     width:220px;
     height:30px;
     color:white;
-    background:navy;
     margin:5px;
     margin-left:2px;
     padding-left: 10px;
     border-radius: 5px;
     line-height:30px;
     position:relative;
+    user-select: none;
+}
+
+#midListCenter>.midListWrap>.channel:hover{
+    background: rgb(54, 56, 58);
+    cursor: pointer;
 }
 
 .channel>.channelMod{
@@ -306,8 +341,57 @@ font-size:50px;
     top:5px;
 }
 
+.ifServer{
+    display:block;
+}
 
+.ifChat{
+    display:none;
+}
 
+.ifChat>.friends{
+    width:220px;
+    height:40px;
+    padding-top:10px;
+    color:white;
+    margin:5px;
+    margin-left:2px;
+    padding-left: 10px;
+    border-radius: 5px;
+    position:relative;
+    user-select: none;
+}
+
+.ifChat>.friends:hover{
+    background: rgb(54, 56, 58);
+    cursor: pointer;
+}
+
+.ifChat>.friends>.avatar{
+    top:3px;
+    width:36px;
+    height:36px;
+    border-radius:18px;
+    float:left;
+    position:absolute;
+}
+
+.ifChat>.friends>.friendName{
+    width:145px;
+    height:35px;
+    line-height:30px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow:hidden;
+    margin-left:40px;
+}
+
+.ifChat>.friends>.delChatLog{
+    top:10px;
+    right: 10px;
+    position:absolute;
+    float:right;
+}
 
 
 #midListBottom{
@@ -316,14 +400,7 @@ font-size:50px;
     background: red;
     bottom: 0px;
     position: absolute;
-
 }
-
-
-
-
-
-
 
 #contentListArea{
     width: 1086px;
@@ -332,12 +409,17 @@ font-size:50px;
 
 #contentFlex{
     display: flex;
+    overflow:hidden;
 }
 
 #contentMain{
     width: 846px;
-    /* height: 100vh; */
+    height: 100vh;
     background: rgb(41, 43, 48);
+    overflow:scroll;
+    overflow-x:hidden;
+    padding-bottom:80px;
+    box-sizing:border-box;
 }
 
 #userList{

@@ -10,6 +10,11 @@ require('dotenv').config({ path: path.join(__dirname, '.env') })
 const port = process.env.port;
 const cookieParser = require('cookie-parser');
 const mysql = require('mysql');
+const socket = require('socket.io');
+const http = require('http');
+const server = http.createServer(app);
+const io = socket(server);
+
 
 app.use(express.static('public'));
 app.use(cookieParser());
