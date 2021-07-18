@@ -22,6 +22,7 @@ router.get('/create', controller.createServer);
 router.post('/create', upload.single('serverlogo'), controller.submitServer);
 router.post('/l', controller.loadServerData);
 router.post('/friends', controller.getFriendsData);
-
+router.post('/friends/chat', controller.loadChatData);
+router.post('/friends/sendchat', controller.sendChat);
 
 module.exports = router;

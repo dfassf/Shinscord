@@ -70,36 +70,3 @@ txtInput.addEventListener('keyup',(e)=>{
 document.addEventListener('DOMContentLoaded',contentareaInit)*/
 
 // 
-
-function contentareaInit(){
-
-    let contentMain = document.querySelector('#contentMain');
-    let typeChat = document.querySelector('.typeChat');
-    let typeChatFrame = document.querySelector('.typeChatFrame');
-    let txtInput = document.querySelector('.txtInput');
-    let contentListArea = document.querySelector('.contentListArea');
-    let wrap = document.querySelector('#wrap')
-    
-    
-
-    
-    txtInput.addEventListener('keydown',(e)=>{
-        console.log('asd')
-        console.log(e)
-        if(e.key == "Enter" && e.shiftKey == true){ 
-
-            console.log('줄띄기');
-
-        } 
-        if(e.key == "Enter" && e.shiftKey == false){
-            console.log('전송')
-            e.preventDefault()
-    
-        }
-    })
-    
-    
-    }
-    
-    
-    document.addEventListener('DOMContentLoaded',contentareaInit)

@@ -17,11 +17,11 @@ module.exports = class Messages extends Sequelize.Model{
     static init(sequelize){
         return super.init({ 
             sentfrom:{ 
-                type:Sequelize.STRING(50),
+                type:Sequelize.INTEGER,
                 allowNull:false,
             },
             sentto:{ 
-                type:Sequelize.TEXT,
+                type:Sequelize.INTEGER,
                 allowNull : false,
             },
             content:{ 

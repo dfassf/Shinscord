@@ -1,11 +1,7 @@
-const {sequelize, User, Server} = require('../../models/index');
+const {sequelize, User, Server, Messages} = require('../../models/index');
 const getCookie = require('../../middleware/getcookie');
-const express =require('express');
-const socket = require('socket.io');
-const http = require('http');
-const app = express();
-const server = http.createServer(app);
-const io = socket(server);
+const { Op } = require('sequelize');
+
 
 
 // /login에서
@@ -20,9 +16,9 @@ let main = async (req, res) =>{
 }
 
 let mainGetUserInfo = async (req, res) => {
-    // console.log(req.headers.cookie)
+    console.log(req.headers.cookie,'ㅋㅋ')
     let loggedInUser = getCookie(req.headers.cookie)
-    // console.log(loggedInUser)
+    console.log(loggedInUser,'ㅋㅋ')
     let getUserInfo = await User.findOne({
         where:{
             useremail:loggedInUser
@@ -30,7 +26,7 @@ let mainGetUserInfo = async (req, res) => {
     })
     let userServerInfo = [];
     let svrStrArr = getUserInfo.dataValues.servers.split(' ');
-
+    console.log(getUserInfo.dataValues.servers,'ㅋㅋ')
     for(let i = 0; i < svrStrArr.length; i++){
         let result = await Server.findOne({
             where:{
@@ -142,13 +138,67 @@ let getFriendsData = async (req, res) => {
     }
     console.log('시작',friendsInfoArr)
     res.json({friendsInfoArr})
+}
 
-    io.sockets.on('connection',(socket)=>{
-        socket.on('send',(data)=>{
-            console.log(`클라이언트에서 받은 메세지는 ${data.msg}`)
-            socket.broadcast.emit('call',data.msg)
-        })
+let loadChatData = async (req, res) => {
+    let loggedInUser = getCookie(req.headers.cookie)
+    console.log(loggedInUser,'ㅋㅋ')
+    let getUserInfo = await User.findOne({
+        where:{
+            useremail:loggedInUser
+        }
     })
+    let loggedInUserId = getUserInfo.dataValues.id
+    let {id} = req.body; //불러오는 사람꺼
+
+    let asd = 'asd'
+    let result = await Messages.findAll({
+        where:{
+            [Op.or]:[{sentfrom: id, sentto: loggedInUserId}, {sentto: id, sentfrom: loggedInUserId}],
+
+        },
+        order: [['id', 'DESC']],
+        limit: 5,
+    })
+    let theOtherParty;
+    if(result[0].sentfrom == id){
+        console.log('보낸사람이 본인')
+        theOtherParty = result[0].sentto
+    } else{
+        console.log('받은 사람이 본인')
+        theOtherParty = result[0].sentfrom
+    }
+
+
+    let result2 = await User.findOne({
+        where:{
+            id:theOtherParty
+        },
+        attributes:['id', 'username', 'pfp']
+    })
+
+
+    
+    res.json({result, result2})
+}
+
+let sendChat = async (req, res) => {
+    let loggedInUser = getCookie(req.headers.cookie)
+    let getUserInfo = await User.findOne({
+        where:{
+            useremail:loggedInUser
+        },
+        attributes:['id']
+    })
+    console.log(req.body)
+    let {txtVal, id} = req.body
+    let result = await Messages.create({
+        sentfrom: getUserInfo.dataValues.id,
+        sentto: id,
+        content:txtVal
+    })
+    console.log('created')
+    console.log(result)
 }
 
 
@@ -160,4 +210,6 @@ module.exports = {
     submitServer,
     loadServerData,
     getFriendsData,
+    loadChatData,
+    sendChat,
 }

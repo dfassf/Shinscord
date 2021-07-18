@@ -11,7 +11,15 @@ async function mainBackInit(){
     let serverLogoSubmit = document.querySelector('.serverLogoSubmit');
     let iconListArea = document.querySelector('#iconListArea');
     let serverNameHeader = document.querySelector('.serverNameHeader');
-
+    let contentMain = document.querySelector('#contentMain');
+    let contentContainer = document.querySelector('#contentContainer');
+    let channelStartTitle = document.querySelector('.channelStartTitle');
+    let channelStartDesc = document.querySelector('.channelStartDesc');
+    let channelStartEdit = document.querySelector('.channelStartEdit');
+    let typeChat = document.querySelector('.typeChat');
+    let typeChatFrame = document.querySelector('.typeChatFrame');
+    let txtInput = document.querySelector('.txtInput');
+    let contentListArea = document.querySelector('.contentListArea');
     let openChat = document.querySelector('#openChat');
     let ifServer = document.querySelector('.ifServer');
     let ifChat = document.querySelector('.ifChat');
@@ -80,6 +88,9 @@ async function mainBackInit(){
         let loadFriendsData = await axios.post('http://localhost:3000/channels/friends',JSON.stringify(data),options)
         let {friendsInfoArr} = loadFriendsData.data
 
+        while(ifChat.hasChildNodes()){
+            ifChat.removeChild(ifChat.firstChild)
+        }
         for(let i = 0; i<friendsInfoArr.length; i++){
             let {id, username, pfp} = friendsInfoArr[i]
             let div = document.createElement('div');
@@ -98,7 +109,7 @@ async function mainBackInit(){
             div.appendChild(p);
             div.appendChild(img2);
             ifChat.appendChild(div);
-            friendsListArr.push(div)
+            friendsListArr.push(div);
         }
         chatRoomOpen()
 
@@ -106,28 +117,82 @@ async function mainBackInit(){
 
     async function chatRoomOpen(){
         for(let i = 0; i<friendsListArr.length; i++){
-            console.log('ㅁㄴㅇ')
             friendsListArr[i].addEventListener('click',async(e)=>{
                 let data = {message:'requested the friend\'s info to get the chat log'}
                 let {className} = e.currentTarget
                 className.split(' ')
-                console.log(className.split(' ')[1])
                 let loadFriendsData = await axios.post('http://localhost:3000/channels/friends',JSON.stringify(data),options)
                 let {friendsInfoArr} = loadFriendsData.data
                 let {id, username, pfp} = friendsInfoArr[i]
-                console.log(id)
-                const socket = io.connect('http://localhost:3000/channels/friends');
-
-                socket.on('connect',()=>{
-                    console.log('접속됨')
-                })
-                socket.emit('send',{msg : 'sent'})
-            })
-
-
+                loadChatData(id);
+                txtInput.addEventListener('keydown',async (e)=>{
+                    console.log('asd')
+                    console.log(e)
+                    if(e.key == "Enter" && e.shiftKey == true){ 
             
+                        console.log('줄띄기');
+            
+                    } 
+                    if(e.key == "Enter" && e.shiftKey == false){
+                        console.log('전송')
+                        e.preventDefault()
+                        let data = {
+                            txtVal: txtInput.value,
+                            id: id,
+                        }
+                        let loadChat = await axios.post('http://localhost:3000/channels/friends/sendchat',JSON.stringify(data),options)
+                        loadChatData(id)
+                    }
+                })
+            })
         }
     }
+
+    async function loadChatData(id){
+        let data = {id:id};
+        let loadChat = await axios.post('http://localhost:3000/channels/friends/chat',JSON.stringify(data),options)
+        let {result, result2} = loadChat.data
+        console.log(result)
+        while(contentContainer.hasChildNodes()){
+            contentContainer.removeChild(contentContainer.firstChild)
+        }
+        channelStartTitle.innerHTML = result2.username;
+        channelStartDesc.innerHTML = `${result2.username}님과 나눈 대화의 첫 부분이에요.`
+        channelStartEdit.innerHTML = '';
+        for(let i = result.length-1; i>=0; i--){
+            let div = document.createElement('div');
+            div.className = 'onePost';
+            let div2 = document.createElement('div');
+            div2.className = 'userPic';
+            let img = document.createElement('img');
+            if(result2.pfp == "") img.src = "/images/shinscord_logo2.png";
+            div2.appendChild(img);
+            let div3 = document.createElement('div');
+            div3.className = 'postRight';
+            let p = document.createElement('p');
+            p.className = 'postersName';
+            p.innerHTML = result2.username;
+            let span = document.createElement('span');
+            span.className = 'postedTime';
+            span.innerHTML = result[i].sentwhen;
+            let div4 = document.createElement('div');
+            div4.className = 'postContent';
+            div4.innerHTML = result[i].content;
+            div3.appendChild(p);
+            div3.appendChild(span);
+            div3.appendChild(div4);
+            div.appendChild(div2);
+            div.appendChild(div3);
+            contentContainer.appendChild(div);
+            contentContainer.scrollTop = 500;
+        }
+        contentContainer.scrollTop = 500;
+        console.log(contentContainer.scrollTop)
+        console.log(contentContainer.scrollHeight)
+        console.log(contentContainer.scrollTop == 500)
+    }
+
+
 
 }
 

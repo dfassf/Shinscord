@@ -3,8 +3,9 @@
 const Sequelize = require('sequelize');
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];
-const User = require('./user')
-const Server = require('./servers')
+const User = require('./user');
+const Server = require('./servers');
+const Messages = require('./messages');
 const db = {};
 
 let sequelize;
@@ -21,7 +22,8 @@ db.User = User;
 User.init(sequelize);
 db.Server = Server;
 Server.init(sequelize);
-
+db.Messages = Messages;
+Messages.init(sequelize);
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
